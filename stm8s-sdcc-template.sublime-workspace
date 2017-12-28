@@ -1,0 +1,1001 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"data",
+				"dataCnt"
+			],
+			[
+				"H",
+				"height"
+			],
+			[
+				"GR",
+				"GREEN1"
+			],
+			[
+				"cnt",
+				"cntBuff"
+			],
+			[
+				"uint",
+				"uint16_t"
+			],
+			[
+				"pub",
+				"pubCnt"
+			],
+			[
+				"p",
+				"pCon"
+			],
+			[
+				"time",
+				"timeRun"
+			],
+			[
+				"os",
+				"os_memcpy"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/main.c",
+			"settings":
+			{
+				"buffer_size": 6036,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "include/main.h",
+			"settings":
+			{
+				"buffer_size": 1610,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "include/stm8s_conf.h",
+			"settings":
+			{
+				"buffer_size": 4421,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Makefile",
+			"settings":
+			{
+				"buffer_size": 1765,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "include/timerTick.h",
+			"settings":
+			{
+				"buffer_size": 386,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/timerTick.c",
+			"settings":
+			{
+				"buffer_size": 1223,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Make",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Make",
+					""
+				],
+				[
+					"Make",
+					"All"
+				],
+				[
+					"Make",
+					"Clean"
+				],
+				[
+					"Make",
+					"Flash"
+				]
+			],
+			[
+				"Make",
+				"Flash"
+			]
+		],
+		[
+			[
+				[
+					"Make",
+					""
+				],
+				[
+					"Make",
+					"Flash"
+				],
+				[
+					"Make",
+					"Clean"
+				],
+				[
+					"Make",
+					"Debug"
+				]
+			],
+			[
+				"Make",
+				"Flash"
+			]
+		],
+		[
+			[
+				[
+					"Make",
+					""
+				],
+				[
+					"Make",
+					"Local"
+				],
+				[
+					"Make",
+					"Clean"
+				],
+				[
+					"Make",
+					"Flash"
+				]
+			],
+			[
+				"Make",
+				"Local"
+			]
+		],
+		[
+			[
+				[
+					"Make",
+					""
+				],
+				[
+					"Make",
+					"Local"
+				],
+				[
+					"Make",
+					"Develop"
+				],
+				[
+					"Make",
+					"Stagging"
+				],
+				[
+					"Make",
+					"Production"
+				],
+				[
+					"Make",
+					"Clean"
+				],
+				[
+					"Make",
+					"Flash"
+				]
+			],
+			[
+				"Make",
+				"Flash"
+			]
+		],
+		[
+			[
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					""
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					"Clean"
+				]
+			],
+			[
+				"Packages/Makefile/Make.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Makefile/Make.sublime-build",
+					""
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					"Clean"
+				]
+			],
+			[
+				"Packages/Makefile/Make.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/User/untitled.sublime-build",
+					""
+				],
+				[
+					"Packages/User/untitled.sublime-build",
+					"Flash"
+				],
+				[
+					"Packages/User/untitled.sublime-build",
+					"Clean"
+				],
+				[
+					"Packages/User/untitled.sublime-build",
+					"All"
+				]
+			],
+			[
+				"Packages/User/untitled.sublime-build",
+				"All"
+			]
+		],
+		[
+			[
+				[
+					"Packages/User/untitled.sublime-build",
+					""
+				],
+				[
+					"Packages/User/untitled.sublime-build",
+					"Flash"
+				],
+				[
+					"Packages/User/untitled.sublime-build",
+					"Clean"
+				],
+				[
+					"Packages/User/untitled.sublime-build",
+					"Debug"
+				]
+			],
+			[
+				"Packages/User/untitled.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "Flash",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/phult/Projects/2016/dves/thaco-car-blind-spot-sensor",
+		"/Users/phult/Projects/2016/dves/thaco-car-blind-spot-sensor/include",
+		"/Users/phult/Projects/2016/dves/thaco-car-blind-spot-sensor/src"
+	],
+	"file_history":
+	[
+		"/Users/phult/Downloads/oggstreamer-oggs-stm8-firmware-001-2b15428da16b6fc201d05eea1ba741b0bc1bbe4e 2/STM8S_StdPeriph_Driver/inc/stm8s_it.h",
+		"/Users/phult/Downloads/oggstreamer-oggs-stm8-firmware-001-2b15428da16b6fc201d05eea1ba741b0bc1bbe4e 2/STM8S_StdPeriph_Driver/src/stm8s_tim1.c",
+		"/Users/phult/Projects/2016/dves/thaco-car-blind-spot-sensor/include/stm8s_it.h",
+		"/Users/phult/Downloads/oggstreamer-oggs-stm8-firmware-001-2b15428da16b6fc201d05eea1ba741b0bc1bbe4e 2/STM8S_StdPeriph_Driver/inc/stm8s.h",
+		"/Users/phult/Projects/2016/dves/thaco-car-blind-spot-sensor/include/timerTick.h",
+		"/Users/phult/Projects/2016/dves/thaco-car-blind-spot-sensor/src/timerTick.c",
+		"/Users/phult/Downloads/oggstreamer-oggs-stm8-firmware-001-2b15428da16b6fc201d05eea1ba741b0bc1bbe4e 2/STM8S_StdPeriph_Driver/inc/stm8s_itc.h",
+		"/Users/phult/Downloads/oggstreamer-oggs-stm8-firmware-001-2b15428da16b6fc201d05eea1ba741b0bc1bbe4e 2/STM8S_StdPeriph_Driver/src/stm8s_it.c",
+		"/Users/phult/Projects/2016/dves/thaco-car-blind-spot-sensor/include/stm8s.h",
+		"/Users/phult/Downloads/oggstreamer-oggs-stm8-firmware-001-2b15428da16b6fc201d05eea1ba741b0bc1bbe4e 2/leds.h",
+		"/Users/phult/Projects/2016/dves/thaco-car-blind-spot-sensor/include/main.h",
+		"/Users/phult/Projects/2016/dves/thaco-car-blind-spot-sensor/make.sublime-build",
+		"/Users/phult/Projects/2016/dves/thaco-car-blind-spot-sensor/thaco-blind-spot-sensor.sublime-project",
+		"/Volumes/tools/stm8/STM8S_StdPeriph_Driver/src/stm8s003/Makefile",
+		"/Users/phult/Projects/2016/dves/dv-solder-station-fw/dv-solder-station.sublime-project",
+		"/Volumes/tools/stm32/libopencm3/include/libopencm3/stm32/f1/rcc.h",
+		"/Volumes/tools/stm32/libopencm3/include/libopencm3/stm32/common/rcc_common_all.h",
+		"/Users/phult/Projects/2016/phult/thaco-led-matrix-scroll-fw/src/text.c",
+		"/Users/phult/Projects/2016/phult/thaco-led-matrix-scroll-fw/src/text.h",
+		"/Users/phult/Projects/2016/phult/thaco-led-matrix-scroll-fw/src/font.h",
+		"/Users/phult/Projects/2016/phult/thaco-led-matrix-scroll-fw/ld/app.ld",
+		"/Volumes/tools/stm32/libopencm3/lib/libopencm3_stm32f1.ld",
+		"/Users/phult/Projects/2016/phult/thaco-led-matrix-scroll-fw/src/include/cdcacm.h",
+		"/Users/phult/Projects/2016/phult/thaco-led-matrix-scroll-fw/src/cdcacm.c",
+		"/Users/phult/Projects/2016/phult/thaco-led-matrix-scroll-fw/src/include/led_matrix_rgb.h",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/include/user_config.develop.h",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/modules/sntp.c",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/modules/json_utils.c",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/modules/system.c",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/modules/include/system.h",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/mqtt/include/debug.h",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/mqtt/queue.c",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/mqtt/include/proto.h",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/mqtt/include/queue.h",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/modules/include/fota.h",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/modules/include/json.h",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/modules/include/json_utils.h",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/modules/include/sntp.h",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/modules/cmd.c",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/Makefile",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/mqtt/debug.c",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/modules/include/wifi.h",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/modules/include/config.h",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/include/user_config.h",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/include/user_config.stagging.h",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/modules/include/cmd.h",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/include/user_config.production.h",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/greenbot-esp-fw.sublime-project",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/.gitignore",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/README.md",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/driver/uart.c",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/mqtt/mqtt.c",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/mqtt/proto.c",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/user/user_main.c",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/modules/config.c",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/modules/ntp.c",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/modules/include/ntp.h",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/modules/web.c",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/modules/fota.c",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/modules/task_mult.c",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/mqtt/include/mqtt.h",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/modules/json.c",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/SublimeAStyleFormatter.sublime-settings",
+		"/Users/phult/Projects/2016/greenbot/thuy-canh-esp-fw/.editorconfig"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"temp",
+			";\n",
+			"INTERRUPT_HANDLER",
+			"\n(",
+			"dddd",
+			"INTERRUPT_HANDLER",
+			")\n",
+			"IRQ_ENC",
+			"\"\n",
+			"gmtime",
+			"data invalid protocol",
+			"TICK_SECOND",
+			"json_alloc",
+			"mem_alloc",
+			"json_value_free_ex",
+			"json_value_free",
+			"json_value_free_ex",
+			"mem_free",
+			"mem_alloc"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/main.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6036,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								974,
+								974
+							]
+						],
+						"settings":
+						{
+							"c_time":
+							[
+								128,
+								3,
+								99,
+								100,
+								97,
+								116,
+								101,
+								116,
+								105,
+								109,
+								101,
+								10,
+								100,
+								97,
+								116,
+								101,
+								116,
+								105,
+								109,
+								101,
+								10,
+								113,
+								0,
+								67,
+								10,
+								7,
+								224,
+								7,
+								13,
+								10,
+								49,
+								28,
+								0,
+								0,
+								0,
+								113,
+								1,
+								133,
+								113,
+								2,
+								82,
+								113,
+								3,
+								46
+							],
+							"syntax": "Packages/C++/C.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2130.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "include/main.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1610,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1403,
+								1394
+							]
+						],
+						"settings":
+						{
+							"c_time":
+							[
+								128,
+								3,
+								99,
+								100,
+								97,
+								116,
+								101,
+								116,
+								105,
+								109,
+								101,
+								10,
+								100,
+								97,
+								116,
+								101,
+								116,
+								105,
+								109,
+								101,
+								10,
+								113,
+								0,
+								67,
+								10,
+								7,
+								224,
+								7,
+								13,
+								11,
+								40,
+								8,
+								0,
+								0,
+								0,
+								113,
+								1,
+								133,
+								113,
+								2,
+								82,
+								113,
+								3,
+								46
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "include/stm8s_conf.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4421,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1114,
+								1114
+							]
+						],
+						"settings":
+						{
+							"c_time":
+							[
+								128,
+								3,
+								99,
+								100,
+								97,
+								116,
+								101,
+								116,
+								105,
+								109,
+								101,
+								10,
+								100,
+								97,
+								116,
+								101,
+								116,
+								105,
+								109,
+								101,
+								10,
+								113,
+								0,
+								67,
+								10,
+								7,
+								224,
+								7,
+								13,
+								10,
+								45,
+								31,
+								0,
+								0,
+								0,
+								113,
+								1,
+								133,
+								113,
+								2,
+								82,
+								113,
+								3,
+								46
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Makefile",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1765,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1131,
+								1131
+							]
+						],
+						"settings":
+						{
+							"c_time":
+							[
+								128,
+								3,
+								99,
+								100,
+								97,
+								116,
+								101,
+								116,
+								105,
+								109,
+								101,
+								10,
+								100,
+								97,
+								116,
+								101,
+								116,
+								105,
+								109,
+								101,
+								10,
+								113,
+								0,
+								67,
+								10,
+								7,
+								224,
+								7,
+								13,
+								10,
+								45,
+								31,
+								0,
+								0,
+								0,
+								113,
+								1,
+								133,
+								113,
+								2,
+								82,
+								113,
+								3,
+								46
+							],
+							"syntax": "Packages/SublimeGDB/gdb.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 659.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "include/timerTick.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 386,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								186,
+								186
+							]
+						],
+						"settings":
+						{
+							"c_time":
+							[
+								128,
+								3,
+								99,
+								100,
+								97,
+								116,
+								101,
+								116,
+								105,
+								109,
+								101,
+								10,
+								100,
+								97,
+								116,
+								101,
+								116,
+								105,
+								109,
+								101,
+								10,
+								113,
+								0,
+								67,
+								10,
+								7,
+								224,
+								7,
+								13,
+								14,
+								39,
+								25,
+								0,
+								0,
+								0,
+								113,
+								1,
+								133,
+								113,
+								2,
+								82,
+								113,
+								3,
+								46
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/timerTick.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1223,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								352,
+								318
+							]
+						],
+						"settings":
+						{
+							"c_time":
+							[
+								128,
+								3,
+								99,
+								100,
+								97,
+								116,
+								101,
+								116,
+								105,
+								109,
+								101,
+								10,
+								100,
+								97,
+								116,
+								101,
+								116,
+								105,
+								109,
+								101,
+								10,
+								113,
+								0,
+								67,
+								10,
+								7,
+								224,
+								7,
+								13,
+								16,
+								20,
+								50,
+								0,
+								0,
+								0,
+								113,
+								1,
+								133,
+								113,
+								2,
+								82,
+								113,
+								3,
+								46
+							],
+							"syntax": "Packages/C++/C.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 145.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 112.0
+	},
+	"pinned_build_system": "Make",
+	"project": "thaco-blind-spot-sensor.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 285.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

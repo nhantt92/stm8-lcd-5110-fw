@@ -1,0 +1,73 @@
+{
+	"build_systems":
+	[
+		{
+			"cmd":
+			[
+				"make"
+			],
+			"name": "Make",
+			"selector": "source.c",
+			"variants":
+			[
+				{
+					"cmd":
+					[
+						"make",
+						"flash"
+					],
+					"name": "Flash"
+				},
+				{
+					"cmd":
+					[
+						"make",
+						"clean"
+					],
+					"name": "Clean"
+				},
+				{
+					"cmd":
+					[
+						"make",
+						"debug"
+					],
+					"name": "Debug"
+				}
+			]
+		}
+	],
+	"folders":
+	[
+		{
+			"file_exclude_patterns":
+			[
+				"*.project",
+				"*.map",
+				"*.cproject",
+				"*.elf",
+				"*.hex"
+			],
+			"folder_exclude_patterns":
+			[
+				".settings",
+				"build",
+				"firmware"
+			],
+			"path": "."
+		}
+	],
+	"settings":
+	{
+		"AStyleFormatter":
+		{
+			"options_default":
+			{
+				"indent-labels": true,
+				"indent-preproc-define": true,
+				"indent-switches": true,
+				"style": "allman"
+			}
+		}
+	}
+}
