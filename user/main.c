@@ -39,18 +39,14 @@ void clock_setup(void)
    CLK_PeripheralClockConfig(CLK_PERIPHERAL_TIMER2, DISABLE);
    CLK_PeripheralClockConfig(CLK_PERIPHERAL_TIMER4, ENABLE);
 }
-
-void delay(uint16_t x)
-{
-    while(x--);
-}
-
-// INTERRUPT_HANDLER(TIM4_UPD_OVF_IRQHandler, 23)
-// {
-//   TIM4_ClearITPendingBit(TIM4_IT_UPDATE);
-//   TIMER_Inc();
-//   IWDG_ReloadCounter();
+// SPI Interrupt routine.
+// INTERRUPT_HANDLER(SPI_IRQHandler, 10){
+//   if(SPI_SR & SPI_SR_RXNE){ // RX not empty - send next byte
+//     spi_send_next();
+//   }
 // }
+
+
 
 // void IWDG_Config(void)
 // {
@@ -71,33 +67,27 @@ void delay(uint16_t x)
 
 void main() 
 {
+  uint16_t i;
   clock_setup();
   // SPI_setup(); 
   // TIMER_Init();
   //IWDG_Config();
   //enableInterrupts();
   //TIMER_InitTime(&tick);
+  GPIO_Init(GPIOB, GPIO_PIN_5, GPIO_MODE_OUT_PP_HIGH_FAST);
+  GPIO_Init(GPIOC, GPIO_PIN_5|GPIO_PIN_6, GPIO_MODE_OUT_PP_HIGH_FAST);
+  GPIO_Init(GPIOD, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, GPIO_MODE_OUT_PP_HIGH_FAST);
+  GPIO_WriteLow(GPIOB, GPIO_PIN_5);
   LcdInit();
+  LcdContrast(0x3E);
   LcdClear();
-  LcdContrast(0x7E);
   LcdGotoXYFont(1,1);
-  LcdStr(FONT_1X, (unsigned char *)"Hello World!");
-
+  LcdStr(FONT_2X, (uint8_t *)"nhantt");
   LcdGotoXYFont(1,4);
-  LcdStr(FONT_2X, (unsigned char *)"Hello!");
-
+  LcdStr(FONT_1X, (uint8_t *)"01268090091");
   LcdUpdate();
-  while(TRUE) 
+  while(1) 
   {
+
   }
 }
-
-// void GPIO_setup(void) 
-// {
-//   GPIO_Init(GPIOC, ((GPIO_Pin_TypeDef)GPIO_PIN_5 | GPIO_PIN_6), GPIO_MODE_OUT_PP_HIGH_FAST);
-// }
-// void SPI_setup(void) 
-// {
-//   SPI_DeInit(); SPI_Init(SPI_FIRSTBIT_MSB, SPI_BAUDRATEPRESCALER_2, SPI_MODE_MASTER, SPI_CLOCKPOLARITY_HIGH, SPI_CLOCKPHASE_1EDGE, SPI_DATADIRECTION_1LINE_TX, SPI_NSS_SOFT ,0x00); 
-//   SPI_Cmd(ENABLE);
-// }

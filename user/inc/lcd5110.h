@@ -18,9 +18,9 @@
 #include "stm8s_gpio.h"
 
 #define LCD_PORT GPIOC
-#define LCD_DC_PIN GPIO_PIN_1
+#define LCD_DC_PIN GPIO_PIN_3
 #define LCD_CE_PIN GPIO_PIN_2
-#define LCD_RST_PIN GPIO_PIN_3
+#define LCD_RST_PIN GPIO_PIN_1
 #define LCD_SDIN_PIN GPIO_PIN_6
 #define LCD_SCLK_PIN GPIO_PIN_5
 
@@ -79,7 +79,7 @@ void LcdUpdate(void);
 void LcdImage(const unsigned char *imageData);
 void LcdContrast(unsigned char contrast);
 uint8_t LcdGotoXYFont(uint8_t x, uint8_t y);
-uint8_t LcdChar(LcdFontSize size, uint8_t ch);
+uint8_t LcdChar(LcdFontSize size, uint16_t ch);
 uint8_t LcdStr(LcdFontSize size, uint8_t dataArray[]);
 uint8_t LcdFStr(LcdFontSize size, const uint8_t *dataPtr);
 uint8_t LcdPixel(uint8_t x, uint8_t y, LcdPixelMode mode);

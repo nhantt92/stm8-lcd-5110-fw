@@ -9,7 +9,6 @@
 ; Public variables in this module
 ;--------------------------------------------------------
 	.globl _main
-	.globl _delay
 	.globl _clock_setup
 	.globl _LcdStr
 	.globl _LcdGotoXYFont
@@ -17,6 +16,8 @@
 	.globl _LcdUpdate
 	.globl _LcdClear
 	.globl _LcdInit
+	.globl _GPIO_WriteLow
+	.globl _GPIO_Init
 	.globl _CLK_GetFlagStatus
 	.globl _CLK_SYSCLKConfig
 	.globl _CLK_HSIPrescalerConfig
@@ -210,45 +211,57 @@ _clock_setup:
 	call	_CLK_PeripheralClockConfig
 	popw	x
 	ret
-;	user/main.c: 43: void delay(uint16_t x)
-;	-----------------------------------------
-;	 function delay
-;	-----------------------------------------
-_delay:
-	pushw	x
-;	user/main.c: 45: while(x--);
-	ldw	x, (0x05, sp)
-00101$:
-	ldw	(0x01, sp), x
-	decw	x
-	ldw	y, (0x01, sp)
-	jrne	00101$
-	popw	x
-	ret
-;	user/main.c: 72: void main() 
+;	user/main.c: 68: void main() 
 ;	-----------------------------------------
 ;	 function main
 ;	-----------------------------------------
 _main:
-;	user/main.c: 74: clock_setup();
+;	user/main.c: 71: clock_setup();
 	call	_clock_setup
-;	user/main.c: 80: LcdInit();
+;	user/main.c: 77: GPIO_Init(GPIOB, GPIO_PIN_5, GPIO_MODE_OUT_PP_HIGH_FAST);
+	push	#0xf0
+	push	#0x20
+	push	#0x05
+	push	#0x50
+	call	_GPIO_Init
+	addw	sp, #4
+;	user/main.c: 78: GPIO_Init(GPIOC, GPIO_PIN_5|GPIO_PIN_6, GPIO_MODE_OUT_PP_HIGH_FAST);
+	push	#0xf0
+	push	#0x60
+	push	#0x0a
+	push	#0x50
+	call	_GPIO_Init
+	addw	sp, #4
+;	user/main.c: 79: GPIO_Init(GPIOD, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, GPIO_MODE_OUT_PP_HIGH_FAST);
+	push	#0xf0
+	push	#0x0e
+	push	#0x0f
+	push	#0x50
+	call	_GPIO_Init
+	addw	sp, #4
+;	user/main.c: 80: GPIO_WriteLow(GPIOB, GPIO_PIN_5);
+	push	#0x20
+	push	#0x05
+	push	#0x50
+	call	_GPIO_WriteLow
+	addw	sp, #3
+;	user/main.c: 81: LcdInit();
 	call	_LcdInit
-;	user/main.c: 81: LcdClear();
-	call	_LcdClear
-;	user/main.c: 82: LcdContrast(0x7E);
-	push	#0x7e
+;	user/main.c: 82: LcdContrast(0x3E);
+	push	#0x3e
 	call	_LcdContrast
 	pop	a
-;	user/main.c: 83: LcdGotoXYFont(1,1);
+;	user/main.c: 83: LcdClear();
+	call	_LcdClear
+;	user/main.c: 84: LcdGotoXYFont(1,1);
 	push	#0x01
 	push	#0x01
 	call	_LcdGotoXYFont
 	popw	x
-;	user/main.c: 84: LcdStr(FONT_1X, (unsigned char *)"Hello World!");
+;	user/main.c: 85: LcdStr(FONT_2X, (uint8_t *)"nhantt");
 	ldw	x, #___str_0+0
 	pushw	x
-	push	#0x00
+	push	#0x01
 	call	_LcdStr
 	addw	sp, #3
 ;	user/main.c: 86: LcdGotoXYFont(1,4);
@@ -256,15 +269,15 @@ _main:
 	push	#0x01
 	call	_LcdGotoXYFont
 	popw	x
-;	user/main.c: 87: LcdStr(FONT_2X, (unsigned char *)"Hello!");
+;	user/main.c: 87: LcdStr(FONT_1X, (uint8_t *)"01268090091");
 	ldw	x, #___str_1+0
 	pushw	x
-	push	#0x01
+	push	#0x00
 	call	_LcdStr
 	addw	sp, #3
-;	user/main.c: 89: LcdUpdate();
+;	user/main.c: 88: LcdUpdate();
 	call	_LcdUpdate
-;	user/main.c: 90: while(TRUE) 
+;	user/main.c: 89: while(1) 
 00102$:
 	jra	00102$
 	ret
@@ -2313,10 +2326,10 @@ _LargeNumbers:
 	.db #0x00	; 0
 	.db #0x00	; 0
 ___str_0:
-	.ascii "Hello World!"
+	.ascii "nhantt"
 	.db 0x00
 ___str_1:
-	.ascii "Hello!"
+	.ascii "01268090091"
 	.db 0x00
 	.area INITIALIZER
 	.area CABS (ABS)

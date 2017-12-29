@@ -82,6 +82,6 @@ clean:
 flash:
 	#$(Q) $(STM8FLASH) -c stlink -p $(MCU) -s 0x8000 -w $(HEX_OUT)
 	#$(Q) $(STM8FLASH) -c stlinkv2 -p stm8s003f3 -s 0x8000 -w $(HEX_OUT) #osx
-	stm8flash -c stlinkv2 -p stm8s003f3 -w $(HEX_OUT) #window
+	stm8flash -c stlinkv2 -p stm8s103f3 -w $(HEX_OUT) #window
 
 $(foreach bdir,$(BUILD_DIR),$(eval $(call compile-objects,$(bdir))))

@@ -7,36 +7,33 @@ Symbol Table
     .__.ABS.                                                    =  000000 G
     .__.CPU.                                                    =  000000 L
     .__.H$L.                                                    =  000001 L
-  7 _BigNumbers                                                    000C57 R
+  7 _BigNumbers                                                    000C10 R
   1 _BottomCacheMark                                               0001F8 R
-  7 _FontLookup                                                    000937 R
-    _GPIO_Init                                                     ****** GX
+  7 _FontLookup                                                    0008F0 R
     _GPIO_WriteHigh                                                ****** GX
     _GPIO_WriteLow                                                 ****** GX
-  7 _LargeNumbers                                                  000D1F R
+  7 _LargeNumbers                                                  000CD8 R
   1 _LcdCache                                                      000000 R
   1 _LcdCacheIdx                                                   0001FC R
-  7 _LcdChar                                                       00020F GR
-  7 _LcdCircle                                                     000711 GR
-  7 _LcdClear                                                      0000A8 GR
-  7 _LcdContrast                                                   0001CB GR
-  7 _LcdFStr                                                       000549 GR
-  7 _LcdGotoXYFont                                                 0001E7 GR
-  7 _LcdImage                                                      0008A8 GR
+  7 _LcdChar                                                       00020A GR
+  7 _LcdCircle                                                     00073D GR
+  7 _LcdClear                                                      00008E GR
+  7 _LcdContrast                                                   0001C6 GR
+  7 _LcdFStr                                                       000572 GR
+  7 _LcdGotoXYFont                                                 0001E2 GR
+  7 _LcdImage                                                      0008D4 GR
   7 _LcdInit                                                       000000 GR
-  7 _LcdIvertLine                                                  0008CE GR
-  7 _LcdIvertLineFragment                                          0008F8 GR
-  7 _LcdLine                                                       00060D GR
-  7 _LcdPixel                                                      00056F GR
-  7 _LcdRect                                                       000828 GR
-  7 _LcdSend                                                       0001A2 R
-  7 _LcdStr                                                        000523 GR
-  7 _LcdUpdate                                                     0000C4 GR
-  7 _LcdVSPI                                                       00015D R
-  7 _LcdWriteToCache                                               0008C4 GR
+  7 _LcdLine                                                       000639 GR
+  7 _LcdPixel                                                      00059B GR
+  7 _LcdRect                                                       000854 GR
+  7 _LcdSend                                                       00018A R
+  7 _LcdStr                                                        000549 GR
+  7 _LcdUpdate                                                     0000AA GR
+  7 _LcdVSPI                                                       000145 R
   1 _TopCacheMark                                                  0001FA R
     __divsint                                                      ****** GX
     __modsint                                                      ****** GX
+    __mulint                                                       ****** GX
     _memcpy                                                        ****** GX
     _memset                                                        ****** GX
 
@@ -52,7 +49,7 @@ Area Table
    4 HOME                                       size      0   flags    0
    5 GSINIT                                     size      0   flags    0
    6 GSFINAL                                    size      0   flags    0
-   7 CODE                                       size   112F   flags    0
+   7 CODE                                       size   10E8   flags    0
    8 INITIALIZER                                size      0   flags    0
    9 CABS                                       size      0   flags    8
 

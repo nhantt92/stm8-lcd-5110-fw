@@ -237,19 +237,19 @@ _CLK_PeripheralClockConfig:
 	and	a, #0x0f
 	push	a
 	ld	a, #0x01
-	ld	(0x03, sp), a
+	ld	(0x02, sp), a
 	pop	a
 	tnz	a
 	jreq	00125$
 00124$:
-	sll	(0x02, sp)
+	sll	(0x01, sp)
 	dec	a
 	jrne	00124$
 00125$:
 ;	lib/stm8s_clk.c: 262: CLK->PCKENR1 &= (uint8_t)(~(uint8_t)(((uint8_t)1 << ((uint8_t)CLK_Peripheral & (uint8_t)0x0F))));
-	ld	a, (0x02, sp)
+	ld	a, (0x01, sp)
 	cpl	a
-	ld	(0x01, sp), a
+	ld	(0x02, sp), a
 ;	lib/stm8s_clk.c: 252: if (((uint8_t)CLK_Peripheral & (uint8_t)0x10) == 0x00)
 	ld	a, (0x05, sp)
 	bcp	a, #0x10
@@ -260,7 +260,7 @@ _CLK_PeripheralClockConfig:
 ;	lib/stm8s_clk.c: 257: CLK->PCKENR1 |= (uint8_t)((uint8_t)1 << ((uint8_t)CLK_Peripheral & (uint8_t)0x0F));
 	ldw	x, #0x50c7
 	ld	a, (x)
-	or	a, (0x02, sp)
+	or	a, (0x01, sp)
 	ldw	x, #0x50c7
 	ld	(x), a
 	jra	00110$
@@ -268,7 +268,7 @@ _CLK_PeripheralClockConfig:
 ;	lib/stm8s_clk.c: 262: CLK->PCKENR1 &= (uint8_t)(~(uint8_t)(((uint8_t)1 << ((uint8_t)CLK_Peripheral & (uint8_t)0x0F))));
 	ldw	x, #0x50c7
 	ld	a, (x)
-	and	a, (0x01, sp)
+	and	a, (0x02, sp)
 	ldw	x, #0x50c7
 	ld	(x), a
 	jra	00110$
@@ -279,7 +279,7 @@ _CLK_PeripheralClockConfig:
 ;	lib/stm8s_clk.c: 270: CLK->PCKENR2 |= (uint8_t)((uint8_t)1 << ((uint8_t)CLK_Peripheral & (uint8_t)0x0F));
 	ldw	x, #0x50ca
 	ld	a, (x)
-	or	a, (0x02, sp)
+	or	a, (0x01, sp)
 	ldw	x, #0x50ca
 	ld	(x), a
 	jra	00110$
@@ -287,7 +287,7 @@ _CLK_PeripheralClockConfig:
 ;	lib/stm8s_clk.c: 275: CLK->PCKENR2 &= (uint8_t)(~(uint8_t)(((uint8_t)1 << ((uint8_t)CLK_Peripheral & (uint8_t)0x0F))));
 	ldw	x, #0x50ca
 	ld	a, (x)
-	and	a, (0x01, sp)
+	and	a, (0x02, sp)
 	ldw	x, #0x50ca
 	ld	(x), a
 00110$:
@@ -302,7 +302,7 @@ _CLK_ClockSwitchConfig:
 ;	lib/stm8s_clk.c: 299: clock_master = (CLK_Source_TypeDef)CLK->CMSR;
 	ldw	x, #0x50c3
 	ld	a, (x)
-	ld	(0x02, sp), a
+	ld	(0x01, sp), a
 ;	lib/stm8s_clk.c: 302: if (CLK_SwitchMode == CLK_SWITCHMODE_AUTO)
 	ld	a, (0x05, sp)
 	cp	a, #0x01
@@ -350,11 +350,11 @@ _CLK_ClockSwitchConfig:
 	jreq	00109$
 ;	lib/stm8s_clk.c: 328: Swif = SUCCESS;
 	ld	a, #0x01
-	ld	(0x01, sp), a
+	ld	(0x02, sp), a
 	jra	00123$
 00109$:
 ;	lib/stm8s_clk.c: 332: Swif = ERROR;
-	clr	(0x01, sp)
+	clr	(0x02, sp)
 	jra	00123$
 00122$:
 ;	lib/stm8s_clk.c: 338: if (ITState != DISABLE)
@@ -400,19 +400,19 @@ _CLK_ClockSwitchConfig:
 	ld	(x), a
 ;	lib/stm8s_clk.c: 360: Swif = SUCCESS;
 	ld	a, #0x01
-	ld	(0x01, sp), a
+	ld	(0x02, sp), a
 	jra	00123$
 00119$:
 ;	lib/stm8s_clk.c: 364: Swif = ERROR;
-	clr	(0x01, sp)
+	clr	(0x02, sp)
 00123$:
 ;	lib/stm8s_clk.c: 367: if(Swif != ERROR)
-	tnz	(0x01, sp)
+	tnz	(0x02, sp)
 	jreq	00136$
 ;	lib/stm8s_clk.c: 370: if((CLK_CurrentClockState == CLK_CURRENTCLOCKSTATE_DISABLE) && ( clock_master == CLK_SOURCE_HSI))
 	tnz	(0x08, sp)
 	jrne	00132$
-	ld	a, (0x02, sp)
+	ld	a, (0x01, sp)
 	cp	a, #0xe1
 	jrne	00132$
 ;	lib/stm8s_clk.c: 372: CLK->ICKR &= (uint8_t)(~CLK_ICKR_HSIEN);
@@ -422,7 +422,7 @@ _CLK_ClockSwitchConfig:
 ;	lib/stm8s_clk.c: 374: else if((CLK_CurrentClockState == CLK_CURRENTCLOCKSTATE_DISABLE) && ( clock_master == CLK_SOURCE_LSI))
 	tnz	(0x08, sp)
 	jrne	00128$
-	ld	a, (0x02, sp)
+	ld	a, (0x01, sp)
 	cp	a, #0xd2
 	jrne	00128$
 ;	lib/stm8s_clk.c: 376: CLK->ICKR &= (uint8_t)(~CLK_ICKR_LSIEN);
@@ -435,14 +435,14 @@ _CLK_ClockSwitchConfig:
 ;	lib/stm8s_clk.c: 378: else if ((CLK_CurrentClockState == CLK_CURRENTCLOCKSTATE_DISABLE) && ( clock_master == CLK_SOURCE_HSE))
 	tnz	(0x08, sp)
 	jrne	00136$
-	ld	a, (0x02, sp)
+	ld	a, (0x01, sp)
 	cp	a, #0xb4
 	jrne	00136$
 ;	lib/stm8s_clk.c: 380: CLK->ECKR &= (uint8_t)(~CLK_ECKR_HSEEN);
 	bres	0x50c1, #0
 00136$:
 ;	lib/stm8s_clk.c: 383: return(Swif);
-	ld	a, (0x01, sp)
+	ld	a, (0x02, sp)
 	popw	x
 	ret
 ;	lib/stm8s_clk.c: 392: void CLK_HSIPrescalerConfig(CLK_Prescaler_TypeDef HSIPrescaler)
@@ -637,9 +637,9 @@ _CLK_GetClockFreq:
 ;	lib/stm8s_clk.c: 541: clocksource = (CLK_Source_TypeDef)CLK->CMSR;
 	ldw	x, #0x50c3
 	ld	a, (x)
-	ld	(0x01, sp), a
+	ld	(0x05, sp), a
 ;	lib/stm8s_clk.c: 543: if (clocksource == CLK_SOURCE_HSI)
-	ld	a, (0x01, sp)
+	ld	a, (0x05, sp)
 	cp	a, #0xe1
 	jrne	00105$
 ;	lib/stm8s_clk.c: 545: tmp = (uint8_t)(CLK->CKDIVR & CLK_CKDIVR_HSIDIV);
@@ -669,26 +669,26 @@ _CLK_GetClockFreq:
 	push	#0x00
 	call	__divulong
 	addw	sp, #8
-	ldw	(0x04, sp), x
+	ldw	(0x03, sp), x
 	jra	00106$
 00105$:
 ;	lib/stm8s_clk.c: 550: else if ( clocksource == CLK_SOURCE_LSI)
-	ld	a, (0x01, sp)
+	ld	a, (0x05, sp)
 	cp	a, #0xd2
 	jrne	00102$
 ;	lib/stm8s_clk.c: 552: clockfrequency = LSI_VALUE;
 	ldw	x, #0xf400
-	ldw	(0x04, sp), x
+	ldw	(0x03, sp), x
 	ldw	y, #0x0001
 	jra	00106$
 00102$:
 ;	lib/stm8s_clk.c: 556: clockfrequency = HSE_VALUE;
 	ldw	x, #0x2400
-	ldw	(0x04, sp), x
+	ldw	(0x03, sp), x
 	ldw	y, #0x00f4
 00106$:
 ;	lib/stm8s_clk.c: 559: return((uint32_t)clockfrequency);
-	ldw	x, (0x04, sp)
+	ldw	x, (0x03, sp)
 	addw	sp, #7
 	ret
 ;	lib/stm8s_clk.c: 569: void CLK_AdjustHSICalibrationValue(CLK_HSITrimValue_TypeDef CLK_HSICalibrationValue)

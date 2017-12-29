@@ -16,20 +16,20 @@ static int16_t LcdCacheIdx;
 
 void LcdInit(void)
 {
-	GPIO_Init(GPIOC, LCD_SDIN_PIN|LCD_SCLK_PIN, GPIO_MODE_OUT_PP_LOW_SLOW);
-	GPIO_Init(GPIOD, LCD_DC_PIN|LCD_CE_PIN|LCD_RST_PIN, GPIO_MODE_OUT_PP_LOW_SLOW);
-	SET_RST;
-	RESET_DC;
-	RESET_CE;
-	RESET_SDIN;
-	RESET_SCLK;
+	// GPIO_Init(GPIOC, LCD_SDIN_PIN|LCD_SCLK_PIN, GPIO_MODE_OUT_PP_HIGH_FAST);
+	// GPIO_Init(GPIOD, LCD_DC_PIN|LCD_CE_PIN|LCD_RST_PIN, GPIO_MODE_OUT_PP_HIGH_FAST);
+    SET_RST;
+    RESET_DC;
+    RESET_CE;
+    RESET_SDIN;
+    RESET_SCLK;
 
     // Reset
-	RESET_RST;
-	SET_RST;
+    RESET_RST;
+    SET_RST;
 
     // Disable LCD controller
-	SET_CE;
+    SET_CE;
   
     // Send commands
     LcdSend(0x21, LCD_CMD); // LCD Extended Commands
@@ -55,7 +55,7 @@ void LcdClear(void)
 
 void LcdUpdate(void)
 {
-	uint8_t i;
+	int16_t i;
 	if(BottomCacheMark < 0) BottomCacheMark = 0;
 	else if(BottomCacheMark >= LCD_CACHE_SIZE) BottomCacheMark = LCD_CACHE_SIZE - 1;
 	if(TopCacheMark < 0) TopCacheMark = 0;
@@ -94,7 +94,7 @@ static void LcdSend(uint8_t data, uint8_t cmd)
 {
 	// Enable display controller
 	RESET_CE;
-	if(cmd = LCD_DATA) SET_DC;
+	if(cmd == LCD_DATA) SET_DC;
 	else RESET_DC;
 	LcdVSPI(data);
 	// Disable display controller
@@ -120,7 +120,7 @@ uint8_t LcdGotoXYFont(uint8_t x, uint8_t y)
 
 
 // Print a single char into current position
-uint8_t LcdChar(LcdFontSize size, uint8_t ch)
+uint8_t LcdChar(LcdFontSize size, uint16_t ch)
 {
     unsigned char i, c;
     unsigned char b1, b2;
@@ -132,12 +132,12 @@ uint8_t LcdChar(LcdFontSize size, uint8_t ch)
         BottomCacheMark = LcdCacheIdx;
     }
 
-    if ( (ch >= 0x20) && (ch <= 0x7F) )
+    if ((ch >= 0x20) && (ch <= 0x7F))
     {
         // offset in symbols table ASCII[0x20-0x7F]
         ch -= 32;
     }
-    else if (ch >= 0xC0)
+    else if (ch >= 0xC0)    
     {
         // offset in symbols table CP1251[0xC0-0xFF] (Cyrillic)
         ch -= 96;
@@ -498,32 +498,32 @@ void LcdImage(const uint8_t *imageData)
     TopCacheMark = LCD_CACHE_SIZE - 1;
 }
 
-// Copy data to cache
-void LcdWriteToCache(int16_t addr, uint8_t data)
-{
-  LcdCache[addr] = data;
-}
+// // Copy data to cache
+// void LcdWriteToCache(int16_t addr, uint8_t data)
+// {
+//   LcdCache[addr] = data;
+// }
 
-// Invert string line
-void LcdIvertLine(uint8_t line) {
-  uint8_t x;
-  uint16_t addr;
+// // Invert string line
+// void LcdIvertLine(uint8_t line) {
+//   uint8_t x;
+//   uint16_t addr;
   
-  addr=line*LCD_X_RES;
-  for (x=0; x<LCD_X_RES; x++) {
-    LcdCache[addr] = ~LcdCache[addr];
-    addr++;
-  }
-}
+//   addr=line*LCD_X_RES;
+//   for (x=0; x<LCD_X_RES; x++) {
+//     LcdCache[addr] = ~LcdCache[addr];
+//     addr++;
+//   }
+// }
 
-// Invert fragment of string line
-void LcdIvertLineFragment(uint8_t line, uint8_t chr_x1, uint8_t chr_x2) 
-{
- 	uint16_t addr, addr_start, addr_end;
-  addr_start = line*LCD_X_RES + chr_x1*6;
-  addr_end = line*LCD_X_RES + chr_x2*6;
+// // Invert fragment of string line
+// void LcdIvertLineFragment(uint8_t line, uint8_t chr_x1, uint8_t chr_x2) 
+// {
+//  	uint16_t addr, addr_start, addr_end;
+//   addr_start = line*LCD_X_RES + chr_x1*6;
+//   addr_end = line*LCD_X_RES + chr_x2*6;
 
-  for (addr=addr_start; addr<addr_end; addr++) {
-    LcdCache[addr] = ~LcdCache[addr];
-  }
-}
+//   for (addr=addr_start; addr<addr_end; addr++) {
+//     LcdCache[addr] = ~LcdCache[addr];
+//   }
+// }

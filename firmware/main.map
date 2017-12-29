@@ -23,13 +23,13 @@ Area                                    Addr        Size        Decimal Bytes (A
      00000083  l_HOME                          
      000001FE  l_DATA                          
      000001FF  s_INITIALIZED                   
-     00001F3D  l_CODE                          
+     00001F34  l_CODE                          
      00008000  s_HOME                          
      00008083  s_GSINIT                        
      0000809D  s_GSFINAL                       
      000080A0  s_CODE                          
-     00009FDD  s_INITIALIZER                   
-     00009FDD  s_SSEG                          
+     00009FD4  s_INITIALIZER                   
+     00009FD4  s_SSEG                          
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 2.
 Hexadecimal  [32-Bits]
@@ -72,84 +72,81 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CODE                                000080A0    00001F3D =        7997. bytes (REL,CON)
+CODE                                000080A0    00001F34 =        7988. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
      000080A0  _LcdInit                           lcd5110
-     00008148  _LcdClear                          lcd5110
-     00008164  _LcdUpdate                         lcd5110
-     0000826B  _LcdContrast                       lcd5110
-     00008287  _LcdGotoXYFont                     lcd5110
-     000082AF  _LcdChar                           lcd5110
-     000085C3  _LcdStr                            lcd5110
-     000085E9  _LcdFStr                           lcd5110
-     0000860F  _LcdPixel                          lcd5110
-     000086AD  _LcdLine                           lcd5110
-     000087B1  _LcdCircle                         lcd5110
-     000088C8  _LcdRect                           lcd5110
-     00008948  _LcdImage                          lcd5110
-     00008964  _LcdWriteToCache                   lcd5110
-     0000896E  _LcdIvertLine                      lcd5110
-     00008998  _LcdIvertLineFragment              lcd5110
-     000091CF  _clock_setup                       main
-     0000924F  _delay                             main
-     0000925B  _main                              main
-     00009AA2  _CLK_DeInit                        stm8s_clk
-     00009ADA  _CLK_FastHaltWakeUpCmd             stm8s_clk
-     00009AEE  _CLK_HSECmd                        stm8s_clk
-     00009AFC  _CLK_HSICmd                        stm8s_clk
-     00009B0A  _CLK_LSICmd                        stm8s_clk
-     00009B1E  _CLK_CCOCmd                        stm8s_clk
-     00009B2C  _CLK_ClockSwitchCmd                stm8s_clk
-     00009B40  _CLK_SlowActiveHaltWakeUpCmd       stm8s_clk
-     00009B54  _CLK_PeripheralClockConfig         stm8s_clk
-     00009BAA  _CLK_ClockSwitchConfig             stm8s_clk
-     00009C6F  _CLK_HSIPrescalerConfig            stm8s_clk
-     00009C81  _CLK_CCOConfig                     stm8s_clk
-     00009C97  _CLK_ITConfig                      stm8s_clk
-     00009CE6  _CLK_SYSCLKConfig                  stm8s_clk
-     00009D1D  _CLK_SWIMConfig                    stm8s_clk
-     00009D2B  _CLK_ClockSecuritySystemEnable     stm8s_clk
-     00009D30  _CLK_GetSYSCLKSource               stm8s_clk
-     00009D35  _CLK_GetClockFreq                  stm8s_clk
-     00009D8E  _CLK_AdjustHSICalibrationValue     stm8s_clk
-     00009D9B  _CLK_SYSCLKEmergencyClear          stm8s_clk
-     00009DA0  _CLK_GetFlagStatus                 stm8s_clk
-     00009DE8  _CLK_GetITStatus                   stm8s_clk
-     00009E0C  _CLK_ClearITPendingBit             stm8s_clk
-     00009E22  _HSIDivFactor                      stm8s_clk
-     00009E26  _CLKPrescTable                     stm8s_clk
-     00009E2E  _GPIO_Init                         stm8s_gpio
-     00009EBC  _GPIO_Write                        stm8s_gpio
-     00009EC2  _GPIO_WriteHigh                    stm8s_gpio
-     00009EC9  _GPIO_WriteLow                     stm8s_gpio
-     00009ED7  _GPIO_WriteReverse                 stm8s_gpio
-     00009EDE  _GPIO_ReadOutputData               stm8s_gpio
+     0000812E  _LcdClear                          lcd5110
+     0000814A  _LcdUpdate                         lcd5110
+     00008266  _LcdContrast                       lcd5110
+     00008282  _LcdGotoXYFont                     lcd5110
+     000082AA  _LcdChar                           lcd5110
+     000085E9  _LcdStr                            lcd5110
+     00008612  _LcdFStr                           lcd5110
+     0000863B  _LcdPixel                          lcd5110
+     000086D9  _LcdLine                           lcd5110
+     000087DD  _LcdCircle                         lcd5110
+     000088F4  _LcdRect                           lcd5110
+     00008974  _LcdImage                          lcd5110
+     00009188  _clock_setup                       main
+     00009208  _main                              main
+     00009A80  _CLK_DeInit                        stm8s_clk
+     00009AB8  _CLK_FastHaltWakeUpCmd             stm8s_clk
+     00009ACC  _CLK_HSECmd                        stm8s_clk
+     00009ADA  _CLK_HSICmd                        stm8s_clk
+     00009AE8  _CLK_LSICmd                        stm8s_clk
+     00009AFC  _CLK_CCOCmd                        stm8s_clk
+     00009B0A  _CLK_ClockSwitchCmd                stm8s_clk
+     00009B1E  _CLK_SlowActiveHaltWakeUpCmd       stm8s_clk
+     00009B32  _CLK_PeripheralClockConfig         stm8s_clk
+     00009B88  _CLK_ClockSwitchConfig             stm8s_clk
+     00009C4D  _CLK_HSIPrescalerConfig            stm8s_clk
+     00009C5F  _CLK_CCOConfig                     stm8s_clk
+     00009C75  _CLK_ITConfig                      stm8s_clk
+     00009CC4  _CLK_SYSCLKConfig                  stm8s_clk
+     00009CFB  _CLK_SWIMConfig                    stm8s_clk
+     00009D09  _CLK_ClockSecuritySystemEnable     stm8s_clk
+     00009D0E  _CLK_GetSYSCLKSource               stm8s_clk
+     00009D13  _CLK_GetClockFreq                  stm8s_clk
+     00009D6C  _CLK_AdjustHSICalibrationValue     stm8s_clk
+     00009D79  _CLK_SYSCLKEmergencyClear          stm8s_clk
+     00009D7E  _CLK_GetFlagStatus                 stm8s_clk
+     00009DC6  _CLK_GetITStatus                   stm8s_clk
+     00009DEA  _CLK_ClearITPendingBit             stm8s_clk
+     00009E00  _HSIDivFactor                      stm8s_clk
+     00009E04  _CLKPrescTable                     stm8s_clk
+     00009E0C  _GPIO_Init                         stm8s_gpio
+     00009E9A  _GPIO_Write                        stm8s_gpio
+     00009EA0  _GPIO_WriteHigh                    stm8s_gpio
+     00009EA7  _GPIO_WriteLow                     stm8s_gpio
+     00009EB5  _GPIO_WriteReverse                 stm8s_gpio
+     00009EBC  _GPIO_ReadOutputData               stm8s_gpio
+     00009EC0  _GPIO_ReadInputData                stm8s_gpio
+     00009EC5  _GPIO_ReadInputPin                 stm8s_gpio
+     00009ECC  _GPIO_ExternalPullUpConfig         stm8s_gpio
+     00009EE7  __mulint                           
 ASxxxx Linker V03.00 + NoICE + sdld,  page 7.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CODE                                000080A0    00001F3D =        7997. bytes (REL,CON)
+CODE                                000080A0    00001F34 =        7988. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     00009EE2  _GPIO_ReadInputData                stm8s_gpio
-     00009EE7  _GPIO_ReadInputPin                 stm8s_gpio
-     00009EEE  _GPIO_ExternalPullUpConfig         stm8s_gpio
-     00009F09  __divulong                         
-     00009F63  _memset                            _memset
-     00009F84  _memcpy                            _memcpy
-     00009FB3  __modsint                          
-     00009FC9  __divsint                          
+     00009F00  __divulong                         
+     00009F5A  _memset                            _memset
+     00009F7B  _memcpy                            _memcpy
+     00009FAA  __modsint                          
+     00009FC0  __divsint                          
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 8.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-SSEG                                00009FDD    00000001 =           1. bytes (REL,CON)
+SSEG                                00009FD4    00000001 =           1. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
@@ -165,6 +162,8 @@ build/lib/stm8s_gpio.rel                  [ stm8s_gpio ]
 
 Libraries Linked                          [ object file ]
 
+c:\Program Files\SDCC\bin\..\lib\stm8/stm8.lib
+                                          [ _mulint.rel ]
 c:\Program Files\SDCC\bin\..\lib\stm8/stm8.lib
                                           [ _divulong.rel ]
 c:\Program Files\SDCC\bin\..\lib\stm8/stm8.lib
