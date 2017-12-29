@@ -1,6 +1,6 @@
                                       1 ;--------------------------------------------------------
                                       2 ; File Created by SDCC : free open source ANSI-C Compiler
-                                      3 ; Version 3.6.0 #9615 (Mac OS X x86_64)
+                                      3 ; Version 3.6.0 #9615 (MINGW64)
                                       4 ;--------------------------------------------------------
                                       5 	.module stm8s_clk
                                       6 	.optsdcc -mstm8
@@ -571,10 +571,10 @@
                                     571 ;	lib/stm8s_clk.c: 475: CLK->CKDIVR |= (uint8_t)((uint8_t)CLK_Prescaler & (uint8_t)CLK_CKDIVR_HSIDIV);
       000250 AE 50 C6         [ 2]  572 	ldw	x, #0x50c6
       000253 F6               [ 1]  573 	ld	a, (x)
-      000254 6B 02            [ 1]  574 	ld	(0x02, sp), a
+      000254 6B 01            [ 1]  574 	ld	(0x01, sp), a
       000256 7B 05            [ 1]  575 	ld	a, (0x05, sp)
       000258 A4 18            [ 1]  576 	and	a, #0x18
-      00025A 1A 02            [ 1]  577 	or	a, (0x02, sp)
+      00025A 1A 01            [ 1]  577 	or	a, (0x01, sp)
       00025C AE 50 C6         [ 2]  578 	ldw	x, #0x50c6
       00025F F7               [ 1]  579 	ld	(x), a
       000260 20 17            [ 2]  580 	jra	00104$
@@ -587,10 +587,10 @@
                                     587 ;	lib/stm8s_clk.c: 480: CLK->CKDIVR |= (uint8_t)((uint8_t)CLK_Prescaler & (uint8_t)CLK_CKDIVR_CPUDIV);
       000269 AE 50 C6         [ 2]  588 	ldw	x, #0x50c6
       00026C F6               [ 1]  589 	ld	a, (x)
-      00026D 6B 01            [ 1]  590 	ld	(0x01, sp), a
+      00026D 6B 02            [ 1]  590 	ld	(0x02, sp), a
       00026F 7B 05            [ 1]  591 	ld	a, (0x05, sp)
       000271 A4 07            [ 1]  592 	and	a, #0x07
-      000273 1A 01            [ 1]  593 	or	a, (0x01, sp)
+      000273 1A 02            [ 1]  593 	or	a, (0x02, sp)
       000275 AE 50 C6         [ 2]  594 	ldw	x, #0x50c6
       000278 F7               [ 1]  595 	ld	(x), a
       000279                        596 00104$:

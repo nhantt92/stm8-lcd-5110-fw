@@ -18,12 +18,12 @@ SOURCE = user lib
 
 INCLUDE = user/inc lib/inc
 
-#osx
-CC := $(SDCC_PATH)/sdcc
-LD := $(SDCC_PATH)/sdcc
+# #osx
+# CC := $(SDCC_PATH)/sdcc
+# LD := $(SDCC_PATH)/sdcc
 
-# CC := sdcc  #windows
-# LD := sdcc
+CC := sdcc  #windows
+LD := sdcc
 
 
 CC_FLAGS = --std-c99 -lstm8 -mstm8 -DSTM8S003 -DSDCC 
@@ -81,7 +81,7 @@ clean:
 	rm -rf $(FW_BASE) $(BUILD_DIR)
 flash:
 	#$(Q) $(STM8FLASH) -c stlink -p $(MCU) -s 0x8000 -w $(HEX_OUT)
-	$(Q) $(STM8FLASH) -c stlinkv2 -p stm8s003f3 -s 0x8000 -w $(HEX_OUT) #osx
-	#stm8flash -c stlinkv2 -p stm8s003f3 -w $(HEX_OUT) #window
+	#$(Q) $(STM8FLASH) -c stlinkv2 -p stm8s003f3 -s 0x8000 -w $(HEX_OUT) #osx
+	stm8flash -c stlinkv2 -p stm8s003f3 -w $(HEX_OUT) #window
 
 $(foreach bdir,$(BUILD_DIR),$(eval $(call compile-objects,$(bdir))))

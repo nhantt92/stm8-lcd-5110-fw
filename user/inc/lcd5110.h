@@ -18,20 +18,20 @@
 #include "stm8s_gpio.h"
 
 #define LCD_PORT GPIOC
-#define LCD_DC_PIN GPIO_PIN_2
-#define LCD_CE_PIN GPIO_PIN_3
-#define LCD_RST_PIN GPIO_PIN_1
+#define LCD_DC_PIN GPIO_PIN_1
+#define LCD_CE_PIN GPIO_PIN_2
+#define LCD_RST_PIN GPIO_PIN_3
 #define LCD_SDIN_PIN GPIO_PIN_6
 #define LCD_SCLK_PIN GPIO_PIN_5
 
-#define SET_DC GPIO_WriteHigh(GPIOA, LCD_DC_PIN)
-#define RESET_DC GPIO_WriteLow(GPIOA, LCD_DC_PIN)
+#define SET_DC GPIO_WriteHigh(GPIOD, LCD_DC_PIN)
+#define RESET_DC GPIO_WriteLow(GPIOD, LCD_DC_PIN)
 
-#define SET_CE GPIO_WriteHigh(GPIOA, LCD_CE_PIN)
-#define RESET_CE GPIO_WriteLow(GPIOA, LCD_CE_PIN)
+#define SET_CE GPIO_WriteHigh(GPIOD, LCD_CE_PIN)
+#define RESET_CE GPIO_WriteLow(GPIOD, LCD_CE_PIN)
 
-#define SET_RST GPIO_WriteHigh(GPIOA, LCD_RST_PIN)
-#define RESET_RST GPIO_WriteLow(GPIOA, LCD_RST_PIN)
+#define SET_RST GPIO_WriteHigh(GPIOD, LCD_RST_PIN)
+#define RESET_RST GPIO_WriteLow(GPIOD, LCD_RST_PIN)
 
 #define SET_SDIN GPIO_WriteHigh(GPIOC, LCD_SDIN_PIN)
 #define RESET_SDIN GPIO_WriteLow(GPIOC, LCD_SDIN_PIN)
@@ -86,7 +86,7 @@ uint8_t LcdPixel(uint8_t x, uint8_t y, LcdPixelMode mode);
 uint8_t LcdLine(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2, LcdPixelMode mode);
 uint8_t LcdCircle(uint8_t x, uint8_t y, uint8_t radius, LcdPixelMode mode);
 uint8_t LcdRect(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2, LcdPixelMode mode);
-void LcdWriteToCache(uint8_t addr, uint8_t data);
+void LcdWriteToCache(int16_t addr, uint8_t data);
 void LcdInvertLine(uint8_t line);
 void LcdInvertLineFragment(uint8_t line, uint8_t ch_x1, uint8_t ch_x2);
 

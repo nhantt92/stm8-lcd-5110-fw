@@ -1,6 +1,6 @@
 ;--------------------------------------------------------
 ; File Created by SDCC : free open source ANSI-C Compiler
-; Version 3.6.0 #9615 (Mac OS X x86_64)
+; Version 3.6.0 #9615 (MINGW64)
 ;--------------------------------------------------------
 	.module main
 	.optsdcc -mstm8
@@ -9,22 +9,14 @@
 ; Public variables in this module
 ;--------------------------------------------------------
 	.globl _main
-	.globl _TIM4_UPD_OVF_IRQHandler
 	.globl _delay
 	.globl _clock_setup
-	.globl _LcdPixel
+	.globl _LcdStr
 	.globl _LcdGotoXYFont
+	.globl _LcdContrast
+	.globl _LcdUpdate
+	.globl _LcdClear
 	.globl _LcdInit
-	.globl _TIMER_InitTime
-	.globl _TIMER_Inc
-	.globl _TIMER_Init
-	.globl _TIM4_ClearITPendingBit
-	.globl _IWDG_Enable
-	.globl _IWDG_ReloadCounter
-	.globl _IWDG_SetReload
-	.globl _IWDG_SetPrescaler
-	.globl _IWDG_WriteAccessCmd
-	.globl _GPIO_Init
 	.globl _CLK_GetFlagStatus
 	.globl _CLK_SYSCLKConfig
 	.globl _CLK_HSIPrescalerConfig
@@ -35,14 +27,10 @@
 	.globl _CLK_HSICmd
 	.globl _CLK_HSECmd
 	.globl _CLK_DeInit
-	.globl _tick
-	.globl _IWDG_Config
 ;--------------------------------------------------------
 ; ram data
 ;--------------------------------------------------------
 	.area DATA
-_tick::
-	.ds 6
 ;--------------------------------------------------------
 ; ram data
 ;--------------------------------------------------------
@@ -88,7 +76,7 @@ __interrupt_vect:
 	int 0x0000 ;int20
 	int 0x0000 ;int21
 	int 0x0000 ;int22
-	int _TIM4_UPD_OVF_IRQHandler ;int23
+	int 0x0000 ;int23
 	int 0x0000 ;int24
 	int 0x0000 ;int25
 	int 0x0000 ;int26
@@ -135,26 +123,26 @@ __sdcc_program_startup:
 ; code
 ;--------------------------------------------------------
 	.area CODE
-;	user/main.c: 26: void clock_setup(void)
+;	user/main.c: 22: void clock_setup(void)
 ;	-----------------------------------------
 ;	 function clock_setup
 ;	-----------------------------------------
 _clock_setup:
-;	user/main.c: 28: CLK_DeInit();
+;	user/main.c: 24: CLK_DeInit();
 	call	_CLK_DeInit
-;	user/main.c: 29: CLK_HSECmd(DISABLE);
+;	user/main.c: 25: CLK_HSECmd(DISABLE);
 	push	#0x00
 	call	_CLK_HSECmd
 	pop	a
-;	user/main.c: 30: CLK_LSICmd(DISABLE);
+;	user/main.c: 26: CLK_LSICmd(DISABLE);
 	push	#0x00
 	call	_CLK_LSICmd
 	pop	a
-;	user/main.c: 31: CLK_HSICmd(ENABLE);
+;	user/main.c: 27: CLK_HSICmd(ENABLE);
 	push	#0x01
 	call	_CLK_HSICmd
 	pop	a
-;	user/main.c: 32: while(CLK_GetFlagStatus(CLK_FLAG_HSIRDY) == FALSE);
+;	user/main.c: 28: while(CLK_GetFlagStatus(CLK_FLAG_HSIRDY) == FALSE);
 00101$:
 	push	#0x02
 	push	#0x01
@@ -162,93 +150,73 @@ _clock_setup:
 	popw	x
 	tnz	a
 	jreq	00101$
-;	user/main.c: 33: CLK_ClockSwitchCmd(ENABLE);
+;	user/main.c: 29: CLK_ClockSwitchCmd(ENABLE);
 	push	#0x01
 	call	_CLK_ClockSwitchCmd
 	pop	a
-;	user/main.c: 34: CLK_HSIPrescalerConfig(CLK_PRESCALER_HSIDIV8);
-	push	#0x18
+;	user/main.c: 30: CLK_HSIPrescalerConfig(CLK_PRESCALER_HSIDIV1);
+	push	#0x00
 	call	_CLK_HSIPrescalerConfig
 	pop	a
-;	user/main.c: 35: CLK_SYSCLKConfig(CLK_PRESCALER_CPUDIV2);
+;	user/main.c: 31: CLK_SYSCLKConfig(CLK_PRESCALER_CPUDIV2);
 	push	#0x81
 	call	_CLK_SYSCLKConfig
 	pop	a
-;	user/main.c: 36: CLK_ClockSwitchConfig(CLK_SWITCHMODE_AUTO, CLK_SOURCE_HSI, DISABLE, CLK_CURRENTCLOCKSTATE_ENABLE);
+;	user/main.c: 32: CLK_ClockSwitchConfig(CLK_SWITCHMODE_AUTO, CLK_SOURCE_HSI, DISABLE, CLK_CURRENTCLOCKSTATE_ENABLE);
 	push	#0x01
 	push	#0x00
 	push	#0xe1
 	push	#0x01
 	call	_CLK_ClockSwitchConfig
 	addw	sp, #4
-;	user/main.c: 37: CLK_PeripheralClockConfig(CLK_PERIPHERAL_SPI, DISABLE);
-	push	#0x00
+;	user/main.c: 33: CLK_PeripheralClockConfig(CLK_PERIPHERAL_SPI, ENABLE);
+	push	#0x01
 	push	#0x01
 	call	_CLK_PeripheralClockConfig
 	popw	x
-;	user/main.c: 38: CLK_PeripheralClockConfig(CLK_PERIPHERAL_I2C, ENABLE);
+;	user/main.c: 34: CLK_PeripheralClockConfig(CLK_PERIPHERAL_I2C, ENABLE);
 	push	#0x01
 	push	#0x00
 	call	_CLK_PeripheralClockConfig
 	popw	x
-;	user/main.c: 39: CLK_PeripheralClockConfig(CLK_PERIPHERAL_ADC, DISABLE);
+;	user/main.c: 35: CLK_PeripheralClockConfig(CLK_PERIPHERAL_ADC, DISABLE);
 	push	#0x00
 	push	#0x13
 	call	_CLK_PeripheralClockConfig
 	popw	x
-;	user/main.c: 40: CLK_PeripheralClockConfig(CLK_PERIPHERAL_AWU, DISABLE);
+;	user/main.c: 36: CLK_PeripheralClockConfig(CLK_PERIPHERAL_AWU, DISABLE);
 	push	#0x00
 	push	#0x12
 	call	_CLK_PeripheralClockConfig
 	popw	x
-;	user/main.c: 41: CLK_PeripheralClockConfig(CLK_PERIPHERAL_UART1, DISABLE);
+;	user/main.c: 37: CLK_PeripheralClockConfig(CLK_PERIPHERAL_UART1, DISABLE);
 	push	#0x00
 	push	#0x03
 	call	_CLK_PeripheralClockConfig
 	popw	x
-;	user/main.c: 42: CLK_PeripheralClockConfig(CLK_PERIPHERAL_TIMER1, DISABLE);
+;	user/main.c: 38: CLK_PeripheralClockConfig(CLK_PERIPHERAL_TIMER1, DISABLE);
 	push	#0x00
 	push	#0x07
 	call	_CLK_PeripheralClockConfig
 	popw	x
-;	user/main.c: 43: CLK_PeripheralClockConfig(CLK_PERIPHERAL_TIMER2, DISABLE);
+;	user/main.c: 39: CLK_PeripheralClockConfig(CLK_PERIPHERAL_TIMER2, DISABLE);
 	push	#0x00
 	push	#0x05
 	call	_CLK_PeripheralClockConfig
 	popw	x
-;	user/main.c: 44: CLK_PeripheralClockConfig(CLK_PERIPHERAL_TIMER4, ENABLE);
+;	user/main.c: 40: CLK_PeripheralClockConfig(CLK_PERIPHERAL_TIMER4, ENABLE);
 	push	#0x01
 	push	#0x04
 	call	_CLK_PeripheralClockConfig
 	popw	x
 	ret
-;	user/main.c: 47: static void GPIO_Config(void)
-;	-----------------------------------------
-;	 function GPIO_Config
-;	-----------------------------------------
-_GPIO_Config:
-;	user/main.c: 49: GPIO_Init(GPIOB, GPIO_PIN_4, GPIO_MODE_IN_PU_NO_IT);
-	push	#0x40
-	push	#0x10
-	push	#0x05
-	push	#0x50
-	call	_GPIO_Init
-	addw	sp, #4
-;	user/main.c: 50: GPIO_Init(GPIOB, GPIO_PIN_5, GPIO_MODE_IN_PU_NO_IT);
-	push	#0x40
-	push	#0x20
-	push	#0x05
-	push	#0x50
-	call	_GPIO_Init
-	addw	sp, #4
-	ret
-;	user/main.c: 53: void delay(uint16_t x)
+;	user/main.c: 43: void delay(uint16_t x)
 ;	-----------------------------------------
 ;	 function delay
 ;	-----------------------------------------
 _delay:
 	pushw	x
-;	user/main.c: 55: while(x--);
+;	user/main.c: 45: while(x--);
 	ldw	x, (0x05, sp)
 00101$:
 	ldw	(0x01, sp), x
@@ -257,94 +225,46 @@ _delay:
 	jrne	00101$
 	popw	x
 	ret
-;	user/main.c: 58: INTERRUPT_HANDLER(TIM4_UPD_OVF_IRQHandler, 23)
-;	-----------------------------------------
-;	 function TIM4_UPD_OVF_IRQHandler
-;	-----------------------------------------
-_TIM4_UPD_OVF_IRQHandler:
-	div	x, a
-;	user/main.c: 60: TIM4_ClearITPendingBit(TIM4_IT_UPDATE);
-	push	#0x01
-	call	_TIM4_ClearITPendingBit
-	pop	a
-;	user/main.c: 61: TIMER_Inc();
-	call	_TIMER_Inc
-;	user/main.c: 62: IWDG_ReloadCounter();
-	call	_IWDG_ReloadCounter
-	iret
-;	user/main.c: 65: void IWDG_Config(void)
-;	-----------------------------------------
-;	 function IWDG_Config
-;	-----------------------------------------
-_IWDG_Config:
-;	user/main.c: 69: IWDG_WriteAccessCmd(IWDG_WriteAccess_Enable);
-	push	#0x55
-	call	_IWDG_WriteAccessCmd
-	pop	a
-;	user/main.c: 71: IWDG_SetPrescaler(IWDG_Prescaler_256);
-	push	#0x06
-	call	_IWDG_SetPrescaler
-	pop	a
-;	user/main.c: 75: IWDG_SetReload(250);
-	push	#0xfa
-	call	_IWDG_SetReload
-	pop	a
-;	user/main.c: 77: IWDG_ReloadCounter();
-	call	_IWDG_ReloadCounter
-;	user/main.c: 79: IWDG_Enable();
-	jp	_IWDG_Enable
-;	user/main.c: 82: void main() 
+;	user/main.c: 72: void main() 
 ;	-----------------------------------------
 ;	 function main
 ;	-----------------------------------------
 _main:
-;	user/main.c: 84: clock_setup();
+;	user/main.c: 74: clock_setup();
 	call	_clock_setup
-;	user/main.c: 85: GPIO_Config();
-	call	_GPIO_Config
-;	user/main.c: 87: TIMER_Init();
-	call	_TIMER_Init
-;	user/main.c: 88: IWDG_Config();
-	call	_IWDG_Config
-;	user/main.c: 89: LcdInit();
+;	user/main.c: 80: LcdInit();
 	call	_LcdInit
-;	user/main.c: 90: enableInterrupts();
-	rim
-;	user/main.c: 91: TIMER_InitTime(&tick);
-	ldw	x, #_tick+0
-	pushw	x
-	call	_TIMER_InitTime
-	popw	x
-;	user/main.c: 92: LcdGotoXYFont(1,1);
+;	user/main.c: 81: LcdClear();
+	call	_LcdClear
+;	user/main.c: 82: LcdContrast(0x7E);
+	push	#0x7e
+	call	_LcdContrast
+	pop	a
+;	user/main.c: 83: LcdGotoXYFont(1,1);
 	push	#0x01
 	push	#0x01
 	call	_LcdGotoXYFont
 	popw	x
-;	user/main.c: 93: LcdPixel(1,1, PIXEL_ON);
-	push	#0x01
-	push	#0x01
-	push	#0x01
-	call	_LcdPixel
+;	user/main.c: 84: LcdStr(FONT_1X, (unsigned char *)"Hello World!");
+	ldw	x, #___str_0+0
+	pushw	x
+	push	#0x00
+	call	_LcdStr
 	addw	sp, #3
-;	user/main.c: 94: LcdPixel(2,1, PIXEL_ON);
-	push	#0x01
-	push	#0x01
-	push	#0x02
-	call	_LcdPixel
-	addw	sp, #3
-;	user/main.c: 95: LcdPixel(3,1, PIXEL_ON);
-	push	#0x01
-	push	#0x01
-	push	#0x03
-	call	_LcdPixel
-	addw	sp, #3
-;	user/main.c: 96: LcdPixel(4,1, PIXEL_ON);
-	push	#0x01
-	push	#0x01
+;	user/main.c: 86: LcdGotoXYFont(1,4);
 	push	#0x04
-	call	_LcdPixel
+	push	#0x01
+	call	_LcdGotoXYFont
+	popw	x
+;	user/main.c: 87: LcdStr(FONT_2X, (unsigned char *)"Hello!");
+	ldw	x, #___str_1+0
+	pushw	x
+	push	#0x01
+	call	_LcdStr
 	addw	sp, #3
-;	user/main.c: 97: while(TRUE) 
+;	user/main.c: 89: LcdUpdate();
+	call	_LcdUpdate
+;	user/main.c: 90: while(TRUE) 
 00102$:
 	jra	00102$
 	ret
@@ -2392,5 +2312,11 @@ _LargeNumbers:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
+___str_0:
+	.ascii "Hello World!"
+	.db 0x00
+___str_1:
+	.ascii "Hello!"
+	.db 0x00
 	.area INITIALIZER
 	.area CABS (ABS)
